@@ -1,98 +1,89 @@
-<title>Serious Search</title>
+﻿<title>Serious Search</title>
 <link rel="icon" href="./icon.png">
+<link rel="stylesheet" href="./searchmod.css">
 
 <body>
-<center><a href="./"><img src="./serious.webp" style="height:50px; margin-top:10px;"></a></center>
+    <center>
+        <div style="margin-top:10px;"><h1 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            C. Peterson's
+            <a href="./">
+                <img src="./serious.webp" style="height:50px;">
+            </a>
+        </h1></div>
+    </center>
 
-<script async src="https://cse.google.com/cse.js?cx=8663a9f19e81d4e79"></script>
-<div class="gcse-search" data-linktarget="_blank"></div>
+    <!-- Div to display a message before search -->
 
-<style>
-body{
-	background-color:#dae0e5;
-	font-family: Arial;
-	margin:0;
-}
+    <script async src="https://cse.google.com/cse.js?cx=8663a9f19e81d4e79"></script>
+    <div class="gcse-search" data-linktarget="_blank"></div>
+	
+	<div id="introDiv" style="margin-top: 20px;">
+        <center><h4>School links:</h4>
+		<ul>
+			<li><a href="https://merewetherhs.instructure.com" target="_blank">MHS Canvas</a></li>
+			<li><a href="https://classroom.google.com" target="_blank">Google Classroom</a></li>
+			<li><a href="https://mail.google.com/mail/u/0/" target="_blank">GMail</a></li>
+			<li><a href="https://merewether-h.sentral.com.au/" target="_blank">MHS Sentral</a></li>
+			<li><a href="https://oliver-4.library.det.nsw.edu.au/5/home/news" target="_blank">Oliver Library</a></li>
+			<li><a href="https://www.mybib.com/tools/apa-citation-generator" target="_blank">APA Generator</a></li>
+			<li><a href="https://learn.getatomi.com/login" target="_blank">Atomi</a></li>
+			<li><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></li>
+		</ul></center>
+		
+		<div class="navbar" style="position:absolute; bottom:10; left:0; width:100vw;">
+		<ul>
+			<li>PSA: this page is viewed best on an <a href="https://www.instagram.com/anstobel/" target="_blank">ANSTOBEL</a> computer</li>
+			<li><a href="https://coastalcustomcandles.rf.gd" target="_blank">Buy a candle</a></li>
+			<li>Bored? <a href="https://worlddomination.rf.gd" target="_blank">Take over the world!</a> (just not on school wifi)</li>
+		</ul>
+    </div>
 
-/* Hide the Google branding in search results */
-.gcsc-branding {
-display: none;
-}
-/* Change the font size of the title of search results */
-.gs-title a {
-font-size: 18px !important;
-text-decoration: none !important;
-}
-.gs-webResult div.gs-visibleUrl-long {
-font-size: 16px !important;
-}
-/* Change the font size of snippets inside search results */
-.gs-title b, .gs-snippet b {
-font-weight: normal;
-}
-/* Highlight the pagination buttons at the bottom of search results */
-.gsc-cursor-page {
-font-size: 1.3em;
-padding: 4px 8px;
-border: 2px solid #ccc;
-}
-.gsc-adBlockVertical, .gsc-adBlock {
-/* this hides both the top and right ad blocks*/
-display: none !important;
-}
-.gsc-thinWrapper {
-/* this gives you use of the whole block, as opposed to 69% google gives*/
-width: 100%;
-}
-.gsc-result-info-container {
-display: none;
-}
-td.gsc-twiddleRegionCell.gsc-twiddle-opened {
-display: none;
-}
-td.gsc-configLabelCell {
-display: none;
-}
-.gsc-above-wrapper-area {
-border-bottom: 0px solid #E9E9E9!important;
-padding: 0px!important;
-}
-.gsc-resultsRoot.gsc-tabData.gsc-tabdActive table {
-margin-bottom: 0px !important;
-}
-.gsc-resultsRoot.gsc-tabData.gsc-tabdActive tbody {
-border-bottom: 0px solid #ddd !important;
-}
-.gsc-result .gs-title {
-height: 1.5em !important;
-}
-.gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b {
-border-bottom: 0px solid #4199FB;
-}
-.gs-webResult {
-border: 0px solid #eee !important;
-padding: 0em !important;
-}
-.cse .gsc-control-cse, .gsc-control-cse {
-margin-top: 18px !important;
-}
-div.gcsc-branding {
-display: none;
-}
-.cse .gsc-control-cse, .gsc-control-cse {
-padding-top: 0 !important;
-padding-bottom: 30px !important;
-}
-.gsc-webResult .gsc-result {
-padding: 0px 0 10px 0 !important;
-}
-table.gsc-search-box td {
-border: 0px !important;
-}
-.gsc-input-box table {
-margin: 0px ;
-}
-.gcsc-find-more-on-google {
-display: none !important;
-}
-</style>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial;
+            margin: 0;
+        }
+
+        #introDiv {
+            transition: opacity 0.3s ease;
+        }
+		
+		ul {
+			list-style-position: inside;
+			padding: 0;
+			margin: 0;
+        }
+        li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+		.navbar li {
+			padding:10px;
+			border-style: solid;
+			border-width:1px;
+			margin-right:20px;
+		}
+    </style>
+
+    <script>
+        // Function to check if search results are visible
+        function checkSearchResults() {
+            const introDiv = document.getElementById('introDiv');
+            const resultsContainer = document.querySelector('.gsc-results-wrapper-visible');
+
+            if (resultsContainer) {
+                introDiv.style.opacity = '0'; // Hide the intro div with animation
+                setTimeout(() => (introDiv.style.display = 'none'), 300); // Fully hide after animation
+            } else {
+                introDiv.style.display = 'block';
+                setTimeout(() => (introDiv.style.opacity = '1'), 0); // Show with animation
+            }
+        }
+
+        // Monitor changes in search results
+        window.addEventListener('load', () => {
+            setInterval(checkSearchResults, 500); // Check every 500ms for changes
+        });
+    </script>
+</body>

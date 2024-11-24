@@ -1,0 +1,104 @@
+        /* Hide the Google branding in search results */
+        .gcsc-branding {
+            display: none;
+        }
+
+        .gs-webResult div.gs-visibleUrl-long {
+            font-size: 16px !important;
+        }
+
+        /* Change the font size of snippets inside search results */
+        .gs-title b,
+        .gs-snippet b {
+            font-weight: normal;
+        }
+
+        /* Highlight the pagination buttons at the bottom of search results */
+        .gsc-cursor-page {
+            font-size: 1.3em;
+            padding: 4px 8px;
+            border: 2px solid #ccc;
+        }
+
+        .gsc-adBlockVertical,
+        .gsc-adBlock {
+            /* this hides both the top and right ad blocks*/
+            display: none !important;
+        }
+
+        .gsc-thinWrapper {
+            /* this gives you use of the whole block, as opposed to 69% google gives*/
+            width: 100%;
+        }
+
+        .gsc-result-info-container {
+            display: none;
+        }
+
+        td.gsc-twiddleRegionCell.gsc-twiddle-opened {
+            display: none;
+        }
+
+        td.gsc-configLabelCell {
+            display: none;
+        }
+
+        .gsc-above-wrapper-area {
+            border-bottom: 0px solid #E9E9E9 !important;
+            padding: 0px !important;
+        }
+
+        .gsc-resultsRoot.gsc-tabData.gsc-tabdActive table {
+            margin-bottom: 0px !important;
+        }
+
+        .gsc-resultsRoot.gsc-tabData.gsc-tabdActive tbody {
+            border-bottom: 0px solid #ddd !important;
+        }
+
+        .gsc-result .gs-title {
+            height: 1.5em !important;
+        }
+
+        .gs-webResult.gs-result a.gs-title:link,
+        .gs-webResult.gs-result a.gs-title:link b,
+        .gs-imageResult a.gs-title:link,
+        .gs-imageResult a.gs-title:link b {
+            border-bottom: 0px solid #4199FB;
+        }
+
+        .gs-webResult {
+            border: 0px solid #eee !important;
+            padding: 0em !important;
+        }
+
+        .cse .gsc-control-cse,
+        .gsc-control-cse {
+            margin-top: 18px !important;
+        }
+
+        div.gcsc-branding {
+            display: none;
+        }
+
+        .cse .gsc-control-cse,
+        .gsc-control-cse {
+            padding-top: 0 !important;
+            padding-bottom: 30px !important;
+        }
+
+        .gsc-webResult .gsc-result {
+            padding: 0px 0 10px 0 !important;
+        }
+
+        table.gsc-search-box td {
+            border: 0px !important;
+        }
+
+        .gsc-input-box table {
+            margin: 0px;
+        }
+
+        .gcsc-find-more-on-google {
+            display: none !important;
+        }

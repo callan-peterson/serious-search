@@ -17,8 +17,8 @@
     <script async src="https://cse.google.com/cse.js?cx=8663a9f19e81d4e79"></script>
     <div class="gcse-search" data-linktarget="_blank"></div>
 	
-	<div id="introDiv" style="margin-top: 20px;">
-        <center><h4>School links:</h4>
+	<div id="introDiv" style="margin-top:-60px;">
+        <div class="links"><center><h4>School links:</h4>
 		<ul>
 			<li><a href="https://merewetherhs.instructure.com" target="_blank">MHS Canvas</a></li>
 			<li><a href="https://classroom.google.com" target="_blank">Google Classroom</a></li>
@@ -28,7 +28,12 @@
 			<li><a href="https://www.mybib.com/tools/apa-citation-generator" target="_blank">APA Generator</a></li>
 			<li><a href="https://learn.getatomi.com/login" target="_blank">Atomi</a></li>
 			<li><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></li>
-		</ul></center>
+		</ul></center></div>
+
+		<div class="iframe-container">
+            <iframe id="news" src="http://68k.news/index.php?section=world&loc=US"></iframe>
+            <div class="overlay"></div> <!-- Prevent scrolling above 100px -->
+        </div>
 		
 		<div class="navbar" style="position:absolute; bottom:10; left:0; width:100vw;">
 		<ul>
@@ -39,7 +44,24 @@
     </div>
 
     <style>
-        body {
+		        .iframe-container {
+            position: relative;
+            width: 70vw;
+            height: 60vh;
+            margin: 20px auto;
+			border-style: solid;
+            overflow: hidden; /* Prevent user from scrolling beyond boundaries */
+        }
+
+        /* iFrame styling */
+        #news {
+            width: calc(100% + 15px);
+            height: calc(100% + 110px);
+			border-style:none;
+			margin-top:-110px;
+        }
+		
+		body {
             background-color: white;
             font-family: Arial;
             margin: 0;
@@ -54,20 +76,42 @@
 			padding: 0;
 			margin: 0;
         }
-        li {
+        .links li {
             display: inline-block;
             margin: 0 10px;
         }
 		.navbar li {
+			display: inline-block;
 			padding:10px;
 			border-style: solid;
 			border-width:1px;
-			margin-right:20px;
 		}
     </style>
+	
+    <script>		
+	// Ensure iframe starts scrolled 100px down and cannot be scrolled back up
+        const iframe = document.getElementById('news');
 
-    <script>
-        // Function to check if search results are visible
+        iframe.addEventListener('load', () => {
+            try {
+                // Access the iframe's document (only works if same-origin policy is satisfied)
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+                // Scroll down 100px initially
+                iframeDoc.documentElement.scrollTop = 100;
+
+                // Prevent scrolling above 100px
+                iframeDoc.addEventListener('scroll', () => {
+                    if (iframeDoc.documentElement.scrollTop < 100) {
+                        iframeDoc.documentElement.scrollTop = 100;
+                    }
+                });
+            } catch (e) {
+                console.warn('Cannot access iframe content due to cross-origin policy.');
+            }
+        });
+		
+		// Function to check if search results are visible
         function checkSearchResults() {
             const introDiv = document.getElementById('introDiv');
             const resultsContainer = document.querySelector('.gsc-results-wrapper-visible');

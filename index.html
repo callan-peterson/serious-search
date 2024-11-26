@@ -1,12 +1,11 @@
 ﻿<title>Serious Search</title>
 <link rel="icon" href="./icon.png">
 <link rel="stylesheet" href="./searchmod.css">
-<meta http-equiv="Content-Security-Policy" content="default-src https: http:; script-src https: http: 'unsafe-inline'; style-src https: http: 'unsafe-inline';">
+<script src="news-aggregator.js"></script>
 
 <body>
     <center>
         <div style="margin-top:10px;"><h1 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-            C. Peterson's
             <a href="./">
                 <img src="./serious.webp" style="height:50px;">
             </a>
@@ -21,19 +20,18 @@
 	<div id="introDiv" style="margin-top:-60px;">
         <div class="links"><center><h4>School links:</h4>
 		<ul>
-			<li><a href="https://merewetherhs.instructure.com" target="_blank">MHS Canvas</a></li>
-			<li><a href="https://classroom.google.com" target="_blank">Google Classroom</a></li>
-			<li><a href="https://mail.google.com/mail/u/0/" target="_blank">GMail</a></li>
-			<li><a href="https://merewether-h.sentral.com.au/" target="_blank">MHS Sentral</a></li>
-			<li><a href="https://oliver-4.library.det.nsw.edu.au/5/home/news" target="_blank">Oliver Library</a></li>
-			<li><a href="https://www.mybib.com/tools/apa-citation-generator" target="_blank">APA Generator</a></li>
-			<li><a href="https://learn.getatomi.com/login" target="_blank">Atomi</a></li>
-			<li><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></li>
+			<li><a href="https://merewetherhs.instructure.com" target="_blank"><button>MHS Canvas</button></a></li>
+			<li><a href="https://classroom.google.com" target="_blank"><button>Google Classroom</button></a></li>
+			<li><a href="https://mail.google.com/mail/u/0/" target="_blank"><button>GMail</button></a></li>
+			<li><a href="https://merewether-h.sentral.com.au/" target="_blank"><button>MHS Sentral</button></a></li>
+			<li><a href="https://oliver-4.library.det.nsw.edu.au/5/home/news" target="_blank"><button>Oliver Library</button></a></li>
+			<li><a href="https://www.mybib.com/tools/apa-citation-generator" target="_blank"><button>APA Generator</button></a></li>
+			<li><a href="https://learn.getatomi.com/login" target="_blank"><button>Atomi</button></a></li>
+			<li><a href="https://scholar.google.com/" target="_blank"><button>Google Scholar</button></a></li>
 		</ul></center></div>
 
 		<div class="iframe-container">
-            <iframe id="news" src="http://68k.news/index.php?section=world&loc=US"></iframe>
-            <div class="overlay"></div> <!-- Prevent scrolling above 100px -->
+            <div id="news"></div>
         </div>
 		
 		<div class="navbar" style="position:absolute; bottom:10; left:0; width:100vw;">
@@ -45,21 +43,27 @@
     </div>
 
     <style>
+		
+		.small-text a{
+			font-size: 14px;
+			margin-left:20px;
+		}
+
 		.iframe-container {
             position: relative;
             width: 70vw;
-            height: 60vh;
+            height: 55vh;
             margin: 20px auto;
 			border-style: solid;
-            overflow: hidden; /* Prevent user from scrolling beyond boundaries */
+            overflow-y: scroll;
+			font-size:10px;
         }
 
-        /* iFrame styling */
         #news {
-            width: calc(100% + 15px);
-            height: calc(100% + 110px);
-			border-style:none;
-			margin-top:-110px;
+            width: calc(100%);
+            height: calc(100%);
+			font-family: Times New Roman;
+			font-size:10px;
         }
 		
 		body {

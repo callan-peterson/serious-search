@@ -18,7 +18,19 @@ fetch(proxyUrl)
 		if (articles.length > 0) {
 			articles.forEach(article => {
 				const articleClone = document.createElement('p');
-				articleClone.innerHTML = article.innerHTML; // Copy article content
+
+				// Find and process all links in the article
+				const links = article.querySelectorAll('a');
+				links.forEach(link => {
+					let href = link.getAttribute('href');
+					if (href) {
+						// Remove everything before and including "US&a="
+						const formattedHref = href.split('US&a=')[1]; // Split and get the part after "US&a="
+						link.href = formattedHref || href; // Fallback to original href if "US&a=" is not found
+					}
+				});
+
+				articleClone.innerHTML = article.innerHTML; // Copy the processed article content
 				articleClone.classList.add('small-text'); // Add the class
 				newsContainer.appendChild(articleClone);
 			});

@@ -90,28 +90,6 @@
     </style>
 	
     <script>		
-	// Ensure iframe starts scrolled 100px down and cannot be scrolled back up
-        const iframe = document.getElementById('news');
-
-        iframe.addEventListener('load', () => {
-            try {
-                // Access the iframe's document (only works if same-origin policy is satisfied)
-                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-                // Scroll down 100px initially
-                iframeDoc.documentElement.scrollTop = 100;
-
-                // Prevent scrolling above 100px
-                iframeDoc.addEventListener('scroll', () => {
-                    if (iframeDoc.documentElement.scrollTop < 100) {
-                        iframeDoc.documentElement.scrollTop = 100;
-                    }
-                });
-            } catch (e) {
-                console.warn('Cannot access iframe content due to cross-origin policy.');
-            }
-        });
-		
 		// Function to check if search results are visible
         function checkSearchResults() {
             const introDiv = document.getElementById('introDiv');
